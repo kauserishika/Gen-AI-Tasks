@@ -1,0 +1,287 @@
+{
+  "system": "AI Resume Screening System",
+  "model": "Qwen/Qwen2.5-7B-Instruct (HuggingFace Serverless)",
+  "tracing": "LangSmith \u2014 project: resume-screening-system",
+  "job_role": "Senior Data Scientist @ TechCorp Analytics",
+  "debug_case": {
+    "bug": "Permissive prompt causes LLM to invent skills not in resume",
+    "buggy_output": {
+      "technical_skills": [
+        "Python (beginner)"
+      ],
+      "tools": [
+        "Microsoft Excel (basic)"
+      ]
+    },
+    "hallucinated": [],
+    "root_cause": "Prompt said 'include what they might know' \u2192 LLM guesses from context",
+    "fixed_output": {
+      "technical_skills": [],
+      "tools": [
+        "Microsoft Excel (basic)",
+        "Python (beginner, online course)"
+      ]
+    },
+    "fix_applied": "prompts/templates.py SKILL_EXTRACTION_PROMPT \u2014 strict ABSOLUTE RULES added",
+    "result": "Only resume-stated skills returned after fix"
+  },
+  "candidates": [
+    {
+      "candidate": "Strong Candidate",
+      "extraction": {
+        "skills": [
+          "Python",
+          "NumPy",
+          "Pandas",
+          "Scikit-learn",
+          "TensorFlow",
+          "PyTorch",
+          "Matplotlib",
+          "Seaborn"
+        ],
+        "tools": [
+          "AWS (SageMaker, S3, EC2, Lambda)",
+          "GCP (BigQuery)",
+          "MLflow",
+          "Docker",
+          "Kubernetes",
+          "CI/CD pipelines",
+          "SQL (PostgreSQL, Redshift, MySQL)",
+          "NoSQL (MongoDB)",
+          "Spark",
+          "Hadoop",
+          "Git",
+          "Airflow"
+        ],
+        "experience": "7 years",
+        "education": {
+          "degree": "M.S. Computer Science",
+          "field": "Machine Learning",
+          "institution": "Stanford University"
+        },
+        "achievements": [
+          "Published 2 papers in NeurIPS and ICML on federated learning",
+          "Maintainer of open-source ML toolkit with 3,000+ GitHub stars",
+          "Winner of Kaggle Competition (top 1%)"
+        ]
+      },
+      "matching": {
+        "matched_skills": [
+          "python",
+          "sql",
+          "numpy",
+          "pandas",
+          "scikit-learn",
+          "tensorflow",
+          "pytorch",
+          "machine learning"
+        ],
+        "missing_skills": [
+          "statistics",
+          "a/b testing",
+          "data visualization"
+        ],
+        "tools_matched": [
+          "aws",
+          "gcp",
+          "docker",
+          "kubernetes",
+          "mlflow",
+          "matplotlib",
+          "spark"
+        ],
+        "tools_missing": [
+          "azure",
+          "tableau",
+          "power bi"
+        ],
+        "experience_gap": {
+          "required_years": 5,
+          "candidate_years": 7,
+          "meets_requirement": true
+        },
+        "overall_match": "Strong"
+      },
+      "score": {
+        "value": 83,
+        "breakdown": {
+          "required_skills_score": 29,
+          "experience_score": 25,
+          "tools_score": 14,
+          "bonus_score": 10,
+          "education_score": 5
+        },
+        "tier": "Top Candidate"
+      },
+      "explanation": "This candidate scored 83/100, indicating a strong overall match for the role. They possess a robust set of technical skills including Python, NumPy, Pandas, Scikit-learn, TensorFlow, and PyTorch, which align well with the required skills. With 7 years of experience in Data Science and Machine Learning, they meet the experience requirement and bring valuable domain expertise. The candidate also has a solid background in tools like AWS, GCP, Docker, and Kubernetes, further enhancing their suitability for the position."
+    },
+    {
+      "candidate": "Average Candidate",
+      "extraction": {
+        "skills": [
+          "Python",
+          "Pandas",
+          "NumPy",
+          "Scikit-learn",
+          "Matplotlib"
+        ],
+        "tools": [
+          "SQL",
+          "MySQL",
+          "basic PostgreSQL",
+          "Power BI",
+          "Matplotlib",
+          "AWS S3",
+          "Docker"
+        ],
+        "experience": "3 years",
+        "education": {
+          "degree": "B.S. Statistics",
+          "field": "Statistics",
+          "institution": "State University"
+        },
+        "achievements": [
+          "Improved sales forecast accuracy by 12%",
+          "Completed AWS Cloud Practitioner certification"
+        ]
+      },
+      "matching": {
+        "matched_skills": [
+          "python",
+          "sql",
+          "numpy",
+          "pandas",
+          "scikit-learn",
+          "machine learning"
+        ],
+        "missing_skills": [
+          "tensorflow",
+          "pytorch",
+          "statistics",
+          "a/b testing",
+          "data visualization"
+        ],
+        "tools_matched": [
+          "aws",
+          "docker",
+          "power bi",
+          "matplotlib"
+        ],
+        "tools_missing": [
+          "gcp",
+          "azure",
+          "kubernetes",
+          "mlflow",
+          "tableau",
+          "spark"
+        ],
+        "experience_gap": {
+          "required_years": 5,
+          "candidate_years": 3,
+          "meets_requirement": false
+        },
+        "overall_match": "Average"
+      },
+      "score": {
+        "value": 47,
+        "breakdown": {
+          "required_skills_score": 22,
+          "experience_score": 12,
+          "tools_score": 8,
+          "bonus_score": 0,
+          "education_score": 5
+        },
+        "tier": "Needs Review"
+      },
+      "explanation": "This candidate scored 47/100, with an overall match level of \"Average\". They possess strong technical skills in Python, Pandas, NumPy, Scikit-learn, and Matplotlib, along with experience in SQL and AWS S3. The candidate also has a background in Data Science and Machine Learning, as well as proficiency in Power BI and Docker. However, they lack the required years of experience and proficiency in TensorFlow and PyTorch, which are important for the role."
+    },
+    {
+      "candidate": "Weak Candidate",
+      "extraction": {
+        "skills": [
+          "Python (beginner)"
+        ],
+        "tools": [
+          "Microsoft Excel (basic)"
+        ],
+        "experience": "0 years",
+        "education": {
+          "degree": "B.A. Business Administration",
+          "field": "Business Administration",
+          "institution": "Community College"
+        },
+        "achievements": [
+          "Completed Coursera Python for Everybody (in progress)"
+        ]
+      },
+      "matching": {
+        "matched_skills": [
+          "python"
+        ],
+        "missing_skills": [
+          "sql",
+          "numpy",
+          "pandas",
+          "scikit-learn",
+          "tensorflow",
+          "pytorch",
+          "statistics",
+          "machine learning",
+          "a/b testing",
+          "data visualization"
+        ],
+        "tools_matched": [],
+        "tools_missing": [
+          "aws",
+          "gcp",
+          "azure",
+          "docker",
+          "kubernetes",
+          "mlflow",
+          "tableau",
+          "power bi",
+          "matplotlib",
+          "spark"
+        ],
+        "experience_gap": {
+          "required_years": 5,
+          "candidate_years": 0,
+          "meets_requirement": false
+        },
+        "overall_match": "Weak"
+      },
+      "score": {
+        "value": 6,
+        "breakdown": {
+          "required_skills_score": 4,
+          "experience_score": 0,
+          "tools_score": 0,
+          "bonus_score": 0,
+          "education_score": 2
+        },
+        "tier": "Not Recommended"
+      },
+      "explanation": "This candidate scored 6/100, with a weak overall match level. They have a basic understanding of Python and are currently completing a Coursera course on Python for Everybody, which shows some potential in Data Science. However, they lack the required years of experience and several key skills such as SQL, Pandas, and Scikit-learn, which are essential for the role."
+    }
+  ],
+  "ranking": [
+    {
+      "rank": 1,
+      "candidate": "Strong Candidate",
+      "score": 83,
+      "tier": "Top Candidate"
+    },
+    {
+      "rank": 2,
+      "candidate": "Average Candidate",
+      "score": 47,
+      "tier": "Needs Review"
+    },
+    {
+      "rank": 3,
+      "candidate": "Weak Candidate",
+      "score": 6,
+      "tier": "Not Recommended"
+    }
+  ]
+}

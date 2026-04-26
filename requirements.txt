@@ -1,0 +1,5 @@
+langchain>=0.3.0
+langchain-core>=0.3.0
+langsmith>=0.1.0
+huggingface-hub>=0.24.0
+python-dotenv>=1.0.0
